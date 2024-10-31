@@ -5,7 +5,7 @@ let addDel = document.getElementById("submitDel");
 let count = 0;
 
 addMeva.addEventListener("click", () => {
-  count++;
+  count += 1;
   if (count <= 20) {
     let addRoyxat = mevalar.value;
     if (addRoyxat == "") {
@@ -15,13 +15,16 @@ addMeva.addEventListener("click", () => {
     let aniq = true;
     let arr = Array.from(royxat.children);
     arr.forEach((item) => {
-      if (addRoyxat.toUpperCase() === item.innerText.toUpperCase()) {
+      if (
+        addRoyxat.toUpperCase() === item.innerText.slice(0, -3).toUpperCase()
+      ) {
         alert("Bu meva ro'yxatda mavjud, Iltimos! boshqa meva kiriting!");
         aniq = false;
       }
     });
     if (aniq) {
       let element = document.createElement("li");
+      let buttonn = document.createElement("button");
 
       ///////////////////////////////
       let arr = addRoyxat;
@@ -37,10 +40,17 @@ addMeva.addEventListener("click", () => {
       ////////////////////////////////////////
 
       element.innerText = oxir;
+      buttonn.innerText = "✖️";
       royxat.appendChild(element);
+      element.appendChild(buttonn);
+      buttonn.addEventListener("click", () => {
+        count -= 1;
+        element.remove();
+      });
     }
   } else {
     alert("Kechirasiz list to'ldi!");
+    count--;
   }
   mevalar.value = "";
 });

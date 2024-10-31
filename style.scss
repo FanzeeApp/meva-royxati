@@ -12,8 +12,29 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  li {
-    list-style-type: decimal;
+}
+ul {
+  margin: 0 !important;
+  padding: 0px 0px 0px 0px;
+}
+li {
+  color: white;
+  padding: 10px 10px;
+  list-style-type: none;
+  margin-bottom: 5px;
+  background-color: $primary-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  button {
+    background-color: red;
+    border: none;
+    border-radius: 100px;
+    padding: 8px;
+    transition: 0.2s ease;
+  }
+  button:hover {
+    background-color: #00b894;
   }
 }
 
